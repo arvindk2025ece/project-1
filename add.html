@@ -1,0 +1,232 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Professor — Portfolio</title>
+  <style>
+    /* Global layout */
+    :root{ --max-width:1000px; --accent:#0b6; }
+    *{ box-sizing: border-box; }
+    body{
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      margin:0;
+      padding:0;
+      display:flex;
+      justify-content:center;
+      background:#f7f7f8;
+      color:#111;
+      line-height:1.45;
+      text-align: left; /* IMPORTANT: all text must be left aligned */
+    }
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+      padding:24px;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .brand h1{font-size:1.25rem; margin:0;}
+    /* top navigation */
+    nav#top-nav a{
+      margin-left:12px;
+      text-decoration:none;
+      color:inherit;
+      font-weight:600;
+    }
+
+    main{ background:#fff; padding:20px; border-radius:12px; box-shadow:0 6px 18px rgba(10,10,10,0.05); }
+
+    section{ padding:18px 0; border-bottom:1px solid #eee; }
+    section:last-of-type{ border-bottom: none; }
+    h2{ margin:0 0 10px 0; font-size:1.1rem; }
+    p{ margin:0 0 12px 0; }
+
+    /* Courses list */
+    .courses ul{ padding-left:18px; margin:8px 0; }
+
+    /* Publications: internal navigation and anchors */
+    .pub-nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    .pub-nav a{
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:8px;
+      background:#f3f7f6;
+      border:1px solid #e7efee;
+      font-size:0.95rem;
+    }
+    .publication-item{ margin:10px 0; }
+    .pub-meta{ font-size:0.9rem; color:#444; }
+
+    /* Office hours */
+    .office-hours table{ width:100%; border-collapse:collapse; }
+    .office-hours th, .office-hours td{ text-align:left; padding:8px; border-bottom:1px solid #eee; }
+
+    /* Responsive */
+    @media (max-width:600px){
+      header{ flex-direction:column; align-items:flex-start; gap:8px; }
+      .pub-nav{ gap:8px; }
+    }
+
+    footer{ margin-top:18px; font-size:0.9rem; color:#666; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='44'><rect width='44' height='44' rx='8' fill='%230b6' /><text x='50%' y='54%' font-size='20' text-anchor='middle' fill='white' font-family='Arial' dy='.35em'>P</text></svg>" alt="Professor logo" width="44" height="44" style="border-radius:8px;"/>
+        <div>
+          <h1>Prof. Jane Doe</h1>
+          <div style="font-size:0.95rem; color:#444;">Department of Computer Science</div>
+        </div>
+      </div>
+
+      <nav id="top-nav" aria-label="Primary">
+        <a href="#courses">Courses Taught</a>
+        <a href="#publications">Publications</a>
+        <a href="#office">Office Hours</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Courses Taught page (section) -->
+      <section id="courses" class="courses" aria-labelledby="courses-heading">
+        <h2 id="courses-heading">Courses Taught</h2>
+        <p>Below is a selection of courses taught recently. Each course includes a short description and typical prerequisites.</p>
+
+        <article class="course">
+          <h3 style="margin:6px 0 4px 0;">CS 510 — Advanced Algorithms</h3>
+          <div class="course-meta" style="font-size:0.95rem; color:#444; margin-bottom:6px;">Undergraduate/Graduate, 3 credits</div>
+          <p>Design and analysis of algorithms, complexity, approximation algorithms, and randomized methods. Prerequisite: Data Structures and Algorithms.</p>
+        </article>
+
+        <article class="course">
+          <h3 style="margin:6px 0 4px 0;">CS 620 — Machine Learning</h3>
+          <div class="course-meta" style="font-size:0.95rem; color:#444; margin-bottom:6px;">Graduate, 3 credits</div>
+          <p>Statistical learning, optimization, neural networks, and hands-on projects. Prerequisite: Probability and Linear Algebra.</p>
+        </article>
+
+        <article class="course">
+          <h3 style="margin:6px 0 4px 0;">CS 300 — Introduction to Programming</h3>
+          <div class="course-meta" style="font-size:0.95rem; color:#444; margin-bottom:6px;">Undergraduate, 4 credits</div>
+          <p>Fundamentals of programming in Python: control flow, data structures, and software basics.</p>
+        </article>
+      </section>
+
+      <!-- Publications page (section). IMPORTANT: use <nav> element for internal page navigation -->
+      <section id="publications" class="publications" aria-labelledby="pub-heading">
+        <h2 id="pub-heading">Publications</h2>
+        <p>Selected publications. Use the internal navigation below to jump to a category.</p>
+
+        <!-- Internal navigation for publications -->
+        <nav class="pub-nav" aria-label="Publications internal navigation">
+          <a href="#pub-journals">Journals</a>
+          <a href="#pub-conferences">Conferences</a>
+          <a href="#pub-bookchapters">Book Chapters</a>
+        </nav>
+
+        <div id="pub-journals" class="pub-category">
+          <h3 style="margin:8px 0 6px 0;">Journals</h3>
+
+          <div class="publication-item">
+            <div style="font-weight:700;">Efficient Graph Algorithms for Large-Scale Networks</div>
+            <div class="pub-meta">Journal of Algorithms — 2024</div>
+            <p>Introduces new streaming techniques for sublinear-time shortest-path approximations.</p>
+          </div>
+
+          <div class="publication-item">
+            <div style="font-weight:700;">Robust Machine Learning under Label Noise</div>
+            <div class="pub-meta">Machine Learning Journal — 2023</div>
+            <p>Formal guarantees for model robustness under varying label corruption rates.</p>
+          </div>
+        </div>
+
+        <div id="pub-conferences" class="pub-category">
+          <h3 style="margin:8px 0 6px 0;">Conferences</h3>
+
+          <div class="publication-item">
+            <div style="font-weight:700;">Scalable Graph Partitioning for Recommendation Systems</div>
+            <div class="pub-meta">Proc. of KDD — 2022</div>
+            <p>Practical partitioning strategies that reduce cross-partition communication by 40% in real workloads.</p>
+          </div>
+
+          <div class="publication-item">
+            <div style="font-weight:700;">Interpretable Neural Architectures</div>
+            <div class="pub-meta">NeurIPS — 2021</div>
+            <p>Architectural constraints and visualization methods that improve interpretability with minimal accuracy loss.</p>
+          </div>
+        </div>
+
+        <div id="pub-bookchapters" class="pub-category">
+          <h3 style="margin:8px 0 6px 0;">Book Chapters</h3>
+
+          <div class="publication-item">
+            <div style="font-weight:700;">Chapter: Graph Mining Techniques</div>
+            <div class="pub-meta">In "Big Data Analytics" (Springer) — 2020</div>
+            <p>Surveys modern graph-mining techniques with case studies in social and biological networks.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Office Hours page (section) -->
+      <section id="office" class="office-hours" aria-labelledby="office-heading">
+        <h2 id="office-heading">Office Hours</h2>
+        <p>Students are welcome to drop by during office hours or arrange appointments by email.</p>
+
+        <table>
+          <thead>
+            <tr><th>Day</th><th>Time</th><th>Location</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Monday</td><td>2:00pm — 4:00pm</td><td>Room 421, CS Building</td></tr>
+            <tr><td>Wednesday</td><td>10:00am — 12:00pm</td><td>Room 421, CS Building</td></tr>
+            <tr><td>Friday</td><td>1:00pm — 3:00pm</td><td>Online (Zoom)</td></tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top:12px;">For appointments outside these hours, please email: <a href="mailto:jane.doe@university.edu">jane.doe@university.edu</a></p>
+      </section>
+
+      <footer>
+        <p>Last updated: Sep 29, 2025 — Contact the department office for scheduling changes.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Smooth-scrolling for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e){
+        // let default behavior happen if link points to top of page
+        const href = this.getAttribute('href');
+        if(!href || href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if(target){
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ <img src= class="C:\Users\arvin\Downloads\Professor.jpg""profile-img">
+ 
+        }
+      });
+    });
+  </script>
+</body>
+</html>
